@@ -47,9 +47,9 @@
         // const fileNameArr = ['img12.png', 'img10.png', 'img02.png', 'img1.png', 'IMG01.GIF', 'img2.JPG']
         // const fileNameArr = ['F-5 Freedom Fighter', 'B-50 Superfortress', 'A-10 Thunderbolt II', 'F-14 Tomcat']
         const fileNameArr = [];
-        const checkFileName = (fileName) => {
+        const checkFileName = () => {
+            const fileName = document.querySelector("#fileName").value;
             const regExp = /((^[a-zA-Z|-]+)(\d{1,5})([\w|-|\.|\s]*))/;
-            
             if(fileNameArr.length > 1000) {
                 alert("파일을 더이상 추가할 수 없습니다.");
                 return;
@@ -60,7 +60,7 @@
                 alert("파일명은 100글자를 초과할 수 없습니다.");
                 return;
             } else if(!regExp.test(fileName)) {
-                alert("파일명 형식이 맞지 않습니다.\n파일명은 영문자로 시작해야 하며\n숫자1~5자리의 숫자를 반드시 포함해야 합니다.");
+                alert("파일명 형식이 맞지 않습니다.\n파일명은 영문자 또는 -로 시작해야 하며\n숫자1~5자리의 숫자를 반드시 포함해야 합니다.");
                 return;
             }
 
@@ -71,7 +71,7 @@
         }
 
         const sortFileName = (fileNameArr) => {
-            if(fileNameArr === undefined && fileArr.length === 0) alert("exist not file!");
+            if(fileNameArr !== undefined && fileNameArr.length === 0) alert("정렬할 파일명이 존재하지 않습니다.!");
 
             const headReg = /[a-zA-Z|-]+(?=[0-9])/;
             const numberReg = /[0-9]{1,5}/;
@@ -100,8 +100,7 @@
         }
 
         document.querySelector("#addBtn").addEventListener('click', (event) => {
-            const fileName = document.querySelector("#fileName").value;
-            checkFileName(fileName);
+            checkFileName();
         });
 
         document.querySelector("#sortBtn").addEventListener('click', (event) => {
@@ -110,7 +109,6 @@
         
         document.querySelector("#fileName").addEventListener('keydown', (event) => {
             if(event.which == 13) {
-                const fileName = document.querySelector("#fileName").value;
                 checkFileName(fileName);
             }
         });
