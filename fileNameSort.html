@@ -71,7 +71,10 @@
         }
 
         const sortFileName = (fileNameArr) => {
-            if(fileNameArr !== undefined && fileNameArr.length === 0) alert("정렬할 파일명이 존재하지 않습니다.!");
+            if(fileNameArr !== undefined && fileNameArr.length === 0) {
+                alert("정렬할 파일명이 존재하지 않습니다.!");
+                return;
+            } 
 
             const headReg = /[a-zA-Z|-]+(?=[0-9])/;
             const numberReg = /[0-9]{1,5}/;
@@ -95,7 +98,6 @@
                 
                 return 0;
             })
-
             document.querySelector("#resultArea").value = fileNameArr.toString();
         }
 
