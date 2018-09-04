@@ -20,7 +20,7 @@ function solution(month, day) {
     const FIX_YEAR = 2016;
     const tempDate = (new Date(FIX_YEAR, month, 0)).getDate();
 
-    if(month < 0 || month > 11) return;
+    if(month < 0 || month > 12) return;
     if(day < 0 || day > tempDate) return;
     
     const date = new Date(FIX_YEAR, month-1, day);
