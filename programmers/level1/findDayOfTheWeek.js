@@ -18,7 +18,7 @@
 const week = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
 function solution(month, day) {
     const FIX_YEAR = 2016;
-    const tempDate = (new Date(FIX_YEAR, month, 0)).getDate();
+    const tempDate = (new Date(`FIX_YEAR-${month}-0`)).getDate();
 
     if(month < 0 || month > 12) return;
     if(day < 0 || day > tempDate) return;
