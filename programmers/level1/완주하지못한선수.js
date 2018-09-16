@@ -3,13 +3,13 @@ function solution(participant, completion) {
 
     for(let i=0; i<participant.length; i++) {
         const curParticipant = participant[i];
+        
         const index = completion.indexOf(curParticipant);
         if(index === -1) {
             answer = curParticipant;
             break;
         }
-        completion[index] = "";
+        completion[index] = 0;
     }
-    return answer;
 }
 console.log(solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]));
