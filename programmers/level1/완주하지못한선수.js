@@ -2,11 +2,13 @@ function solution(participant, completion) {
     let answer = "";
 
     for(let i=0; i<participant.length; i++) {
-        if(!completion.includes(participant[i])) {
-            answer = participant[i];
+        const curParticipant = participant[i];
+        const index = completion.indexOf(curParticipant);
+        if(index === -1) {
+            answer = curParticipant;
             break;
-        } 
-        completion.splice(completion.indexOf(participant[i]), 1);
+        }
+        completion[index] = "";
     }
     return answer;
 }
