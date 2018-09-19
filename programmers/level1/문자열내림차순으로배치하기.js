@@ -11,4 +11,4 @@ function sort(array) {
         return 0;
     }).join('');
 }
-console.log(solution("Zbcdefg"));
+console.log(solution("ZbcasdfasdfasdfdsfSZZZasdADDdefg"));
